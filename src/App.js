@@ -1,10 +1,16 @@
 import React from 'react';
+import './index.css';
+import MainControl from './components/MainControl';
+import SearchInput from './components/SearchInput';
+import Filter from './components/Filter';
 
 function App() {
   return (
-    <div className="App">
-      <p>123</p>
-    </div>
+      <main className="main">
+          <MainControl />
+          <SearchInput />
+          <Filter/>
+      </main>
   );
 }
 

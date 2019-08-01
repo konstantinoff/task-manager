@@ -1,0 +1,15 @@
+.filter__label {
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: none;
+}
+.filter__label:hover {
+    opacity: 0.7;
+    transition: opacity 0.2s ease-out;
+}
+
+.filter__label--active {
+    text-shadow: 1px 0 0 #000000;
+}
