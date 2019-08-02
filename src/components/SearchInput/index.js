@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-export default (props) => (
+ const SearchInput = (props) => (
     <section className="main__search search container">
         <input
             type="text"
@@ -11,5 +11,7 @@ export default (props) => (
         />
         <label className="visually-hidden" htmlFor="search__input">Поиск</label>
     </section>
-)
+);
+
+export default SearchInput
 

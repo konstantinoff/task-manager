@@ -1,8 +1,8 @@
 import React from 'react';
-import FilterButton from './FilterButton'
+import FilterButton from './FilterButton';
 import './index.css';
 
-export default (props) => (
+const Filter =  (props) => (
     <section className="main__filter filter container">
         <FilterButton name="All" count="15"/>
         <FilterButton name="Overdue" count="15"/>
@@ -12,4 +12,6 @@ export default (props) => (
         <FilterButton name="Tags" count="15"/>
         <FilterButton name="Archive" count="15"/>
     </section>
-)
+);
+
+export default Filter
