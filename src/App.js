@@ -1,17 +1,29 @@
-import React from 'react';
-import './index.css';
-import MainControl from './components/MainControl';
-import SearchInput from './components/SearchInput';
-import Filter from './components/Filter';
+import React from "react";
+import styled from "styled-components";
+import Normalize from "./Normalize";
+import Globals from "./Globals";
 
-function App() {
+import MainControl from "./components/MainControl";
+import SearchInput from "./components/SearchInput";
+import Filter from "./components/Filter";
+import Board from "./components/Board";
+
+function App({ className }) {
   return (
-      <main className="main">
-          <MainControl />
-          <SearchInput />
-          <Filter/>
+    <>
+      <Globals />
+      <Normalize />
+      <main className={className}>
+        <MainControl />
+        <SearchInput modifiers="hidden" />
+        <Filter />
+        <Board />
       </main>
+    </>
   );
 }
 
-export default App;
+export default styled(App)`
+  padding-top: 50px;
+  padding-bottom: 20px;
+`;
