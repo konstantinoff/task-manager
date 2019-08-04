@@ -1,15 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import CardControl from "./CardControl";
+import CardColorBar from "./CardColorBar";
 
 const Card = ({ className }) => (
   <article className={className}>
     <CardInner>
-      <CardControl>
-        <span>123</span>
-        <span>123</span>
-        <span>123</span>
-      </CardControl>
+      <CardControl />
+      <CardColorBar modifiers={["pink", "wave"]} />
     </CardInner>
   </article>
 );
@@ -32,6 +30,9 @@ const CardInner = styled.div`
     box-shadow: 0 -14px 38px 0 rgba(35, 113, 245, 0.07),
       0 14px 38px 0 rgba(35, 113, 245, 0.07);
     z-index: 1;
+  }
+  &:hover ${CardControl} {
+    opacity: 1;
   }
 `;
 
