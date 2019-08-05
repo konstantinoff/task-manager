@@ -42,22 +42,22 @@
         );
       }
       var p = Object(c.a)(f());
-      function m() {
+      function d() {
         var n = Object(l.a)([
           "\n  font-size: 16px;\n  display: inline-flex;\n  font-weight: normal;\n  color: inherit;\n  border: none;\n  text-transform: uppercase;\n  background-color: inherit;\n  text-decoration: none;\n  margin-left: 54px;\n  cursor: pointer;\n  &:hover {\n    opacity: 0.7;\n    transition: opacity 0.3s ease-out;\n  }\n"
         ]);
         return (
-          (m = function() {
+          (d = function() {
             return n;
           }),
           n
         );
       }
-      var d = Object(c.b)(function(n) {
+      var m = Object(c.b)(function(n) {
         var e = n.name,
           t = n.className;
         return a.a.createElement("button", { disabled: !0, className: t }, e);
-      })(m());
+      })(d());
       function b() {
         var n = Object(l.a)([
           "\n  position: relative;\n  display: flex;\n  margin-bottom: 8px;\n  align-items: baseline;\n"
@@ -90,10 +90,10 @@
             a.a.createElement(
               "section",
               { className: "control__btn-wrap" },
-              a.a.createElement(d, { name: "Tasks" }),
-              a.a.createElement(d, { name: "Add New Task" }),
-              a.a.createElement(d, { name: "Statistic" }),
-              a.a.createElement(d, { name: "Search" })
+              a.a.createElement(m, { name: "Tasks" }),
+              a.a.createElement(m, { name: "Add New Task" }),
+              a.a.createElement(m, { name: "Statistic" }),
+              a.a.createElement(m, { name: "Search" })
             )
           );
         },
@@ -200,32 +200,32 @@
           n
         );
       }
-      var E = Object(c.b)(function(n) {
+      var T = Object(c.b)(function(n) {
         var e = n.className,
           t = n.action;
         return a.a.createElement("button", { className: e }, t);
       })(N());
-      function T() {
+      function k() {
         var n = Object(l.a)([
           "\n  display: flex;\n  opacity: 0;\n  justify-content: space-between;\n  margin-bottom: 8px;\n  transition: opacity 0.3s ease-out;\n"
         ]);
         return (
-          (T = function() {
+          (k = function() {
             return n;
           }),
           n
         );
       }
-      var k = Object(c.b)(function(n) {
+      var E = Object(c.b)(function(n) {
         var e = n.className;
         return a.a.createElement(
           "div",
           { className: e },
-          a.a.createElement(E, { action: "edit" }),
-          a.a.createElement(E, { action: "archive" }),
-          a.a.createElement(E, { action: "favorites" })
+          a.a.createElement(T, { action: "edit" }),
+          a.a.createElement(T, { action: "archive" }),
+          a.a.createElement(T, { action: "favorites" })
         );
-      })(T());
+      })(k());
       function J() {
         var n = Object(l.a)([
           "\n  width: 100%;\n  height: 10px;\n  font-size: 0;\n  background-color: black;\n  margin-bottom: 10px;\n  stroke: #000000;\n  ",
@@ -500,7 +500,7 @@
           n
         );
       }
-      var tn = c.b.div(en(), k),
+      var tn = c.b.div(en(), E),
         rn = Object(c.b)(function(n) {
           var e = n.className;
           return a.a.createElement(
@@ -509,7 +509,7 @@
             a.a.createElement(
               tn,
               null,
-              a.a.createElement(k, null),
+              a.a.createElement(E, null),
               a.a.createElement(L, { modifiers: ["green"] }),
               a.a.createElement(K, {
                 text: "It is example of repeating task. It marks by wave"
@@ -534,15 +534,7 @@
           return a.a.createElement(
             "section",
             { className: "board container" },
-            a.a.createElement(
-              on,
-              null,
-              a.a.createElement(rn, null),
-              a.a.createElement(rn, null),
-              a.a.createElement(rn, null),
-              a.a.createElement(rn, null),
-              a.a.createElement(rn, null)
-            )
+            a.a.createElement(on, null, a.a.createElement(rn, null))
           );
         };
       function cn() {
@@ -578,4 +570,4 @@
   },
   [[20, 1, 2]]
 ]);
-//# sourceMappingURL=main.092306f3.chunk.js.map
+//# sourceMappingURL=main.b2cab196.chunk.js.map
