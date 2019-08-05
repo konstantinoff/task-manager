@@ -11,13 +11,14 @@ import Board from "./components/Board";
 function App({ className }) {
   return (
     <>
-      <Globals />
-      <Normalize />
       <main className={className}>
         <MainControl />
         <SearchInput modifiers="hidden" />
         <Filter />
         <Board />
+
+        <Globals />
+        <Normalize />
       </main>
     </>
   );

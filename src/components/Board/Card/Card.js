@@ -2,12 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import CardControl from "./CardControl";
 import CardColorBar from "./CardColorBar";
+import CardText from "./CardText";
+import CardSettings from "./CardSettings";
 
 const Card = ({ className }) => (
   <article className={className}>
     <CardInner>
       <CardControl />
-      <CardColorBar modifiers={["pink", "wave"]} />
+      <CardColorBar modifiers={["green", ""]} />
+      <CardText text="It is example of repeating task. It marks by wave" />
+      <CardSettings />
     </CardInner>
   </article>
 );
@@ -40,5 +44,8 @@ export default styled(Card)`
   position: relative;
   width: 210px;
   height: 210px;
-  margin-bottom: 26px;
+  margin: 0 40px 26px 0;
+  &:nth-of-type(4n) {
+    margin-right: 0;
+  }
 `;

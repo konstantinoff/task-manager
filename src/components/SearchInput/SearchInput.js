@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { applyStyleModifiers } from "styled-components-modifiers";
-import "./index.css";
 
 const SearchInput = ({ className }) => (
   <section className="main__search search container">
