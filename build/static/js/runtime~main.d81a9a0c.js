@@ -1,37 +1,37 @@
 !(function(e) {
   function r(r) {
     for (
-      var n, i, f = r[0], a = r[1], l = r[2], c = 0, s = [];
+      var t, i, f = r[0], l = r[1], a = r[2], c = 0, s = [];
       c < f.length;
       c++
     )
       (i = f[c]), o[i] && s.push(o[i][0]), (o[i] = 0);
-    for (n in a) Object.prototype.hasOwnProperty.call(a, n) && (e[n] = a[n]);
+    for (t in l) Object.prototype.hasOwnProperty.call(l, t) && (e[t] = l[t]);
     for (p && p(r); s.length; ) s.shift()();
-    return u.push.apply(u, l || []), t();
+    return u.push.apply(u, a || []), n();
   }
-  function t() {
+  function n() {
     for (var e, r = 0; r < u.length; r++) {
-      for (var t = u[r], n = !0, f = 1; f < t.length; f++) {
-        var a = t[f];
-        0 !== o[a] && (n = !1);
+      for (var n = u[r], t = !0, f = 1; f < n.length; f++) {
+        var l = n[f];
+        0 !== o[l] && (t = !1);
       }
-      n && (u.splice(r--, 1), (e = i((i.s = t[0]))));
+      t && (u.splice(r--, 1), (e = i((i.s = n[0]))));
     }
     return e;
   }
-  var n = {},
+  var t = {},
     o = { 1: 0 },
     u = [];
   function i(r) {
-    if (n[r]) return n[r].exports;
-    var t = (n[r] = { i: r, l: !1, exports: {} });
-    return e[r].call(t.exports, t, t.exports, i), (t.l = !0), t.exports;
+    if (t[r]) return t[r].exports;
+    var n = (t[r] = { i: r, l: !1, exports: {} });
+    return e[r].call(n.exports, n, n.exports, i), (n.l = !0), n.exports;
   }
   (i.m = e),
-    (i.c = n),
-    (i.d = function(e, r, t) {
-      i.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t });
+    (i.c = t),
+    (i.d = function(e, r, n) {
+      i.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: n });
     }),
     (i.r = function(e) {
       "undefined" !== typeof Symbol &&
@@ -42,21 +42,21 @@
     (i.t = function(e, r) {
       if ((1 & r && (e = i(e)), 8 & r)) return e;
       if (4 & r && "object" === typeof e && e && e.__esModule) return e;
-      var t = Object.create(null);
+      var n = Object.create(null);
       if (
-        (i.r(t),
-        Object.defineProperty(t, "default", { enumerable: !0, value: e }),
+        (i.r(n),
+        Object.defineProperty(n, "default", { enumerable: !0, value: e }),
         2 & r && "string" != typeof e)
       )
-        for (var n in e)
+        for (var t in e)
           i.d(
-            t,
             n,
+            t,
             function(r) {
               return e[r];
-            }.bind(null, n)
+            }.bind(null, t)
           );
-      return t;
+      return n;
     }),
     (i.n = function(e) {
       var r =
@@ -72,12 +72,12 @@
     (i.o = function(e, r) {
       return Object.prototype.hasOwnProperty.call(e, r);
     }),
-    (i.p = "konstantinoff.github.io/task-manager/");
+    (i.p = "konstantinov.dev/");
   var f = (window.webpackJsonp = window.webpackJsonp || []),
-    a = f.push.bind(f);
+    l = f.push.bind(f);
   (f.push = r), (f = f.slice());
-  for (var l = 0; l < f.length; l++) r(f[l]);
-  var p = a;
-  t();
+  for (var a = 0; a < f.length; a++) r(f[a]);
+  var p = l;
+  n();
 })([]);
-//# sourceMappingURL=runtime~main.f3f823d5.js.map
+//# sourceMappingURL=runtime~main.d81a9a0c.js.map

@@ -138,11 +138,11 @@
             ("undefined" !== typeof e &&
               (Object({
                 NODE_ENV: "production",
-                PUBLIC_URL: "konstantinoff.github.io/task-manager"
+                PUBLIC_URL: "konstantinov.dev"
               }).REACT_APP_SC_ATTR ||
                 Object({
                   NODE_ENV: "production",
-                  PUBLIC_URL: "konstantinoff.github.io/task-manager"
+                  PUBLIC_URL: "konstantinov.dev"
                 }).SC_ATTR)) ||
             "data-styled",
           O = "undefined" !== typeof window && "HTMLElement" in window,
@@ -151,11 +151,11 @@
             ("undefined" !== typeof e &&
               (Object({
                 NODE_ENV: "production",
-                PUBLIC_URL: "konstantinoff.github.io/task-manager"
+                PUBLIC_URL: "konstantinov.dev"
               }).REACT_APP_SC_DISABLE_SPEEDY ||
                 Object({
                   NODE_ENV: "production",
-                  PUBLIC_URL: "konstantinoff.github.io/task-manager"
+                  PUBLIC_URL: "konstantinov.dev"
                 }).SC_DISABLE_SPEEDY)) ||
             !1,
           A = {};
@@ -11670,4 +11670,4 @@
     function(e, t, n) {}
   ]
 ]);
-//# sourceMappingURL=2.a19ccd40.chunk.js.map
+//# sourceMappingURL=2.ef5b75e8.chunk.js.map

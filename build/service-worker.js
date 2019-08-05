@@ -16,7 +16,7 @@ importScripts(
 );
 
 importScripts(
-  "konstantinoff.github.io/task-manager/precache-manifest.f410be36bdff6c1441924616ac7608dc.js"
+  "konstantinov.dev/precache-manifest.416ee197ae61761c7204cff07b96fcc3.js"
 );
 
 self.addEventListener("message", event => {
@@ -36,9 +36,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerNavigationRoute(
-  workbox.precaching.getCacheKeyForURL(
-    "konstantinoff.github.io/task-manager/index.html"
-  ),
+  workbox.precaching.getCacheKeyForURL("konstantinov.dev/index.html"),
   {
     blacklist: [/^\/_/, /\/[^\/]+\.[^\/]+$/]
   }
