@@ -6,9 +6,6 @@ const Board = props => (
   <section className="board container">
     <BoardTasks>
       <Card />
-      <Card />
-      <Card />
-      <Card />
     </BoardTasks>
   </section>
 );

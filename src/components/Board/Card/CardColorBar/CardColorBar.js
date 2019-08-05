@@ -28,7 +28,7 @@ const CardColorBar = ({ className, modifiers }) => (
       modifiers={modifiers}
       width="100%"
       height="10"
-      viewBox="0 0 159"
+      viewBox="0 0 159 10"
       preserveAspectRatio="none"
     >
       <g fill="none" fillRule="nonzero" strokeLinecap="square" strokeWidth="5">

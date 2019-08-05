@@ -16,7 +16,6 @@ function App({ className }) {
         <SearchInput modifiers="hidden" />
         <Filter />
         <Board />
-
         <Globals />
         <Normalize />
       </main>

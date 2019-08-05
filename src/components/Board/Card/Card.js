@@ -9,7 +9,7 @@ const Card = ({ className }) => (
   <article className={className}>
     <CardInner>
       <CardControl />
-      <CardColorBar modifiers={["green", ""]} />
+      <CardColorBar modifiers={["green"]} />
       <CardText text="It is example of repeating task. It marks by wave" />
       <CardSettings />
     </CardInner>
