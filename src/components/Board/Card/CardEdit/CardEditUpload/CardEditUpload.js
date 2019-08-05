@@ -1,43 +1,45 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import { useDropzone } from "react-dropzone";
+import "./add-photo.svg";
 
-const thumbsContainer = {
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  justifyContent: "center"
-};
+const ThumbsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 
-const thumb = {
-  display: "inline-flex",
-  borderRadius: 2,
-  border: "1px solid #eaeaea",
-  marginBottom: 8,
-  marginRight: 8,
-  width: 100,
-  height: 100,
-  padding: 4,
-  boxSizing: "border-box"
-};
+const Thumb = styled.div`
+  display: inline-flex;
+  border-radius: 2px;
+  border: 1px solid #eaeaea;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  width: 100px;
+  height: 100px;
+  padding: 4px;
+  box-sizing: border-box;
+`;
 
-const thumbInner = {
-  display: "flex",
-  minWidth: 0,
-  overflow: "hidden"
-};
+const ThumbInner = styled.div`
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+`;
 
-const img = {
-  display: "block",
-  width: "auto",
-  height: "100%"
-};
+const Img = styled.img`
+  display: block;
+  width: auto;
+  height: 100%;
+`;
 
-const dropzoneContainer = {
-  border: "1px dashed rgba(0,0,0, .2)",
-  cursor: "pointer",
-  padding: "5px",
-  textAlign: "center"
-};
+const DropzoneContainer = styled.section`
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  padding: 5px;
+  text-align: center;
+`;
 
 function Previews(props) {
   const [files, setFiles] = useState([]);
@@ -56,11 +58,11 @@ function Previews(props) {
   });
 
   const thumbs = files.map(file => (
-    <div style={thumb} key={file.name}>
-      <div style={thumbInner}>
-        <img src={file.preview} style={img} />
-      </div>
-    </div>
+    <Thumb key={file.name}>
+      <ThumbInner>
+        <Img src={file.preview} />
+      </ThumbInner>
+    </Thumb>
   ));
 
   useEffect(
@@ -72,16 +74,13 @@ function Previews(props) {
   );
 
   return (
-    <section style={dropzoneContainer}>
+    <DropzoneContainer>
       <div {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()} />
-        <p>
-          {!files.length &&
-            "Drag 'n' drop some files here, or click to select files"}
-        </p>
+        <p>{!files.length && <img src="./add-photo.svg" alt="" />}</p>
       </div>
-      <aside style={thumbsContainer}>{thumbs}</aside>
-    </section>
+      <ThumbsContainer>{thumbs}</ThumbsContainer>
+    </DropzoneContainer>
   );
 }
 

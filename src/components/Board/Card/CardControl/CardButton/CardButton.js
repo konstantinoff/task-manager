@@ -2,11 +2,7 @@ import React from "react";
 import styled from "styled-components";
 // import { applyStyleModifiers } from "styled-components-modifiers";
 
-const CardButton = ({ className, action }) => (
-  <button className={className}>{action}</button>
-);
-
-export default styled(CardButton)`
+const Button = styled.button`
   border: 0;
   padding: 0;
   font-size: 12px;
@@ -18,3 +14,5 @@ export default styled(CardButton)`
     opacity: 0.6;
   }
 `;
+
+export default Button;

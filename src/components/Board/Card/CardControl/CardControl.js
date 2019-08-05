@@ -3,11 +3,11 @@ import styled from "styled-components";
 import CardButton from "./CardButton";
 import { applyStyleModifiers } from "styled-components-modifiers";
 
-const CardControl = ({ className }) => (
+const CardControl = ({ className, setIsEdit }) => (
   <div className={className}>
-    <CardButton action="edit" />
-    <CardButton action="archive" />
-    <CardButton action="favorites" />
+    <CardButton onClick={() => setIsEdit(true)}>edit</CardButton>
+    <CardButton>favorite</CardButton>
+    <CardButton>archive</CardButton>
   </div>
 );
 

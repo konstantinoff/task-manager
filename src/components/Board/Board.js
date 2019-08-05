@@ -1,11 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "./Card";
+import stateExample from "../../state";
 
 const Board = props => (
   <section className="board container">
     <BoardTasks>
-      <Card />
+      {stateExample.cardsIds.map(id => {
+        return <Card key={id} id={id} />;
+      })}
+
+      {/*<Card isEdit={false} />*/}
+      {/*<Card isEdit={true} />*/}
     </BoardTasks>
   </section>
 );

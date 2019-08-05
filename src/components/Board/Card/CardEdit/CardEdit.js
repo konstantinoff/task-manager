@@ -5,8 +5,10 @@ import CardControl from "../CardControl";
 import CardColorBar from "../CardColorBar";
 import CardEditText from "./CardEditText";
 import CardEditUpload from "./CardEditUpload";
+import stateExample from "../../../../state";
 
-const CardEdit = ({ className }) => {
+const CardEdit = ({ className, id }) => {
+  const data = stateExample.cards[id];
   return (
     <article className={className}>
       <CardInner modifiers="edit">
