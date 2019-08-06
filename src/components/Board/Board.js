@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Card from "./Card";
 import appContext from "../../state";
 
 const Board = props => {
-  const { state, setState } = useContext(appContext);
-  console.log(state);
+  const { state } = useContext(appContext);
   return (
     <section className="board container">
       <BoardTasks>

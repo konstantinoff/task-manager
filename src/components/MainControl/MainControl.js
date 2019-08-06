@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import MenuButton from "./MenuButton";
-import globalState from "../../state";
 
 const MainControl = props => {
-  const [state, setState] = useState(globalState);
   return (
     <Control className="container">
       <Header>TASKMANAGER</Header>
       <section className="control__btn-wrap">
         <MenuButton>Tasks</MenuButton>
-        {/*<MenuButton onClick={() => setState(...state, cards: )}>Add New Task</MenuButton>*/}
+        <MenuButton>Add New Task</MenuButton>
         <MenuButton>Statistic</MenuButton>
         <MenuButton>Search</MenuButton>
       </section>

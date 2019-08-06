@@ -1,6 +1,4 @@
-import React from "react";
 import styled from "styled-components";
-// import { applyStyleModifiers } from "styled-components-modifiers";
 
 const Button = styled.button`
   border: 0;

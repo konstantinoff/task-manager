@@ -11,27 +11,30 @@ import Board from "./components/Board";
 
 const globalState = {
   cards: {
-    2: {
+    0: {
       id: 2,
       text: "Текст1",
       color: null,
-      repeat: null
+      repeat: null,
+      hashtags: ["тег1", "тег2", "тег3"]
     },
-    3: {
+    1: {
       id: 3,
       text: "Текст2",
       color: "pink",
-      repeat: null
+      repeat: null,
+      hashtags: ["тег4", "тег5", "тег6"]
     },
-    4: {
+    2: {
       id: 4,
       text: "Текст3",
       color: "yellow",
-      repeat: "repeat"
+      repeat: "repeat",
+      hashtags: ["тег7", "тег8", "тег9"]
     }
   },
-  cardsIds: ["2", "3", "4"],
-  EditingCard: null
+  cardsIds: ["0", "1", "2"],
+  editingCard: "0"
 };
 
 function App({ className }) {

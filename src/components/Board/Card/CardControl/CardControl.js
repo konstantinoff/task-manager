@@ -2,13 +2,21 @@ import React from "react";
 import styled from "styled-components";
 import CardButton from "./CardButton";
 import { applyStyleModifiers } from "styled-components-modifiers";
-import { setEditContext } from "../Card";
+import appContext from "../../../../state";
 
-const CardControl = ({ className }) => {
-  const { isEdit, setIsEdit } = React.useContext(setEditContext);
+const CardControl = ({ className, id }) => {
+  const { state, setState } = React.useContext(appContext);
+  const { editingCard } = state;
   return (
     <div className={className}>
-      <CardButton onClick={() => setIsEdit(!isEdit)}>edit</CardButton>
+      <CardButton
+        onClick={() => {
+          const isOpened = id === editingCard ? null : id;
+          setState({ ...state, editingCard: isOpened });
+        }}
+      >
+        edit
+      </CardButton>
       <CardButton>favorite</CardButton>
       <CardButton>archive</CardButton>
     </div>

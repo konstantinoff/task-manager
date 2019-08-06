@@ -13,10 +13,10 @@ const CardView = ({ className, id }) => {
   return (
     <article className={className}>
       <CardInner>
-        <CardControl />
+        <CardControl id={id} />
         <CardColorBar modifiers={[color, repeat]} />
         <CardText text={text} />
-        <CardSettings />
+        <CardSettings id={id} />
       </CardInner>
     </article>
   );

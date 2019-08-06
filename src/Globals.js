@@ -5,7 +5,7 @@ export default createGlobalStyle`
   @font-face {
       font-family: "HelveticaNeueCyr";
       src: local("HelveticaNeueCyr-Bold"),
-      url("./fonts/HelveticaNeueCyr-Bold.woff2") format("woff"),
+      url("./fonts/HelveticaNeueCyr-Bold.woff2") format("woff2"),
       url("./fonts/HelveticaNeueCyr-Bold.woff") format("woff");
       font-weight: bold;
       font-style: normal;

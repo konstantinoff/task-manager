@@ -3,10 +3,10 @@ import styled from "styled-components";
 import CardImage from "./CardImage";
 import CardDetails from "./CardDetails";
 
-const CardSettings = ({ className }) => {
+const CardSettings = ({ className, id }) => {
   return (
     <div className={className}>
-      <CardDetails />
+      <CardDetails id={id} />
       <CardImage />
     </div>
   );

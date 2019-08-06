@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import CardDetailsText from "./CardDetailsText";
 import CardHashTag from "./CardHashTag";
+import appContext from "../../../../../../state";
 
 const CardDates = styled.div`
   display: flex;
@@ -19,15 +20,17 @@ const CardHashList = styled.div`
   overflow: auto;
 `;
 
-const CardDetails = () => {
+const CardDetails = ({ id }) => {
+  const { state } = useContext(appContext);
+  const { hashtags } = state.cards[id];
   return (
     <CardDates>
       <CardDetailsText text="23 September" />
       <CardDetailsText text="11:15 PM" />
       <CardHashList>
-        <CardHashTag text="repeat" />
-        <CardHashTag text="cinema" />
-        <CardHashTag text="entertainment" />
+        {hashtags.map((item, index) => {
+          return <CardHashTag key={index.toString()} text={item} />;
+        })}
       </CardHashList>
     </CardDates>
   );

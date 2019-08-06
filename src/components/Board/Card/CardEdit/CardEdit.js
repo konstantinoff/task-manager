@@ -14,7 +14,7 @@ const CardEdit = ({ className, id }) => {
   return (
     <article className={className}>
       <CardInner modifiers="edit">
-        <CardControl modifiers="edit" />
+        <CardControl modifiers="edit" id={id} />
         <CardColorBar modifiers={["edit", color, repeat]} />
         <CardEditText id={id} />
         <CardEditUpload />
