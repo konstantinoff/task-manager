@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import CardInner from "../CardInner";
 import CardControl from "../CardControl";
 import CardColorBar from "../CardColorBar";
 import CardText from "./CardText";
 import CardSettings from "./CardSettings";
-import stateExample from "../../../../state";
+import appContext from "../../../../state";
 
-const CardView = ({ className, id, setIsEdit }) => {
-  const data = stateExample.cards[id];
+const CardView = ({ className, id }) => {
+  const { state } = useContext(appContext);
+  const { color, text, repeat } = state.cards[id];
   return (
     <article className={className}>
       <CardInner>
-        <CardControl setIsEdit={setIsEdit} />
-        <CardColorBar modifiers={["yellow", "repeat"]} />
-        <CardText text="It is example of repeating task. It marks by wave" />
+        <CardControl />
+        <CardColorBar modifiers={[color, repeat]} />
+        <CardText text={text} />
         <CardSettings />
       </CardInner>
     </article>

@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import appContext from "../../../../../state";
 
-const CardEditText = ({ className }) => {
+const CardEditText = ({ className, id }) => {
+  const { state, setState } = useContext(appContext);
+  const { text } = state.cards[id];
   return (
     <textarea
+      onChange={e =>
+        setState({
+          ...state
+        })
+      }
       className={className}
-      defaultValue="It is example of repeating task. It marks by wave."
+      defaultValue={text}
     />
   );
 };

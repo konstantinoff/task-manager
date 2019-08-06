@@ -1,20 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import CardInner from "../CardInner";
 import CardControl from "../CardControl";
 import CardColorBar from "../CardColorBar";
 import CardEditText from "./CardEditText";
 import CardEditUpload from "./CardEditUpload";
-import stateExample from "../../../../state";
+import appContext from "../../../../state";
 
 const CardEdit = ({ className, id }) => {
-  const data = stateExample.cards[id];
+  const { state } = useContext(appContext);
+  const { color, repeat } = state.cards[id];
+
   return (
     <article className={className}>
       <CardInner modifiers="edit">
         <CardControl modifiers="edit" />
-        <CardColorBar modifiers="pink" />
-        <CardEditText />
+        <CardColorBar modifiers={["edit", color, repeat]} />
+        <CardEditText id={id} />
         <CardEditUpload />
       </CardInner>
     </article>

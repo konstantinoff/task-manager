@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDropzone } from "react-dropzone";
-import "./add-photo.svg";
+import addPhoto from "./add-photo.svg";
 
 const ThumbsContainer = styled.div`
   display: flex;
@@ -35,9 +35,7 @@ const Img = styled.img`
 `;
 
 const DropzoneContainer = styled.section`
-  border: 1px dashed rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  padding: 5px;
   text-align: center;
 `;
 
@@ -77,7 +75,9 @@ function Previews(props) {
     <DropzoneContainer>
       <div {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()} />
-        <p>{!files.length && <img src="./add-photo.svg" alt="" />}</p>
+        {!files.length && (
+          <img width="50px" height="50px" src={addPhoto} alt="" />
+        )}
       </div>
       <ThumbsContainer>{thumbs}</ThumbsContainer>
     </DropzoneContainer>

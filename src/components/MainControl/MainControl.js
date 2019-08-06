@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import MenuButton from "./MenuButton";
+import globalState from "../../state";
 
-const MainControl = props => (
-  <Control className="container">
-    <Header>TASKMANAGER</Header>
-    <section className="control__btn-wrap">
-      <MenuButton name="Tasks" />
-      <MenuButton name="Add New Task" />
-      <MenuButton name="Statistic" />
-      <MenuButton name="Search" />
-    </section>
-  </Control>
-);
+const MainControl = props => {
+  const [state, setState] = useState(globalState);
+  return (
+    <Control className="container">
+      <Header>TASKMANAGER</Header>
+      <section className="control__btn-wrap">
+        <MenuButton>Tasks</MenuButton>
+        {/*<MenuButton onClick={() => setState(...state, cards: )}>Add New Task</MenuButton>*/}
+        <MenuButton>Statistic</MenuButton>
+        <MenuButton>Search</MenuButton>
+      </section>
+    </Control>
+  );
+};
 
 const Header = styled.h1`
   font-size: 16px;

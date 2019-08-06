@@ -1,13 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const MenuButton = ({ name, className }) => (
-  <button disabled className={className}>
-    {name}
-  </button>
-);
-
-export default styled(MenuButton)`
+const MenuButton = styled.button`
   font-size: 16px;
   display: inline-flex;
   font-weight: normal;
@@ -23,3 +17,5 @@ export default styled(MenuButton)`
     transition: opacity 0.3s ease-out;
   }
 `;
+
+export default MenuButton;

@@ -4,11 +4,13 @@
   "private": true,
   "dependencies": {
     "antd": "^3.21.1",
+    "install": "^0.13.0",
+    "npm": "^6.10.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-dropzone": "^10.1.7",
     "react-scripts": "3.0.1",
-    "styled-components": "^4.3.2",
+    "styled-components": "^5.0.0-beta.8",
     "styled-components-modifiers": "^1.2.4"
   },
   "scripts": {
