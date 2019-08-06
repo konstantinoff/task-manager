@@ -1,15 +1,7 @@
-import React from "react";
 import { applyStyleModifiers } from "styled-components-modifiers";
 import styled from "styled-components";
 
-const FilterButton = ({ name, className, count }) => (
-  <button className={className}>
-    {name}
-    <span> {count}</span>
-  </button>
-);
-
-export default styled(FilterButton)`
+const FilterButton = styled.button`
   font-size: 16px;
   text-transform: uppercase;
   cursor: pointer;
@@ -25,3 +17,5 @@ export default styled(FilterButton)`
     `
   })}
 `;
+
+export default FilterButton;

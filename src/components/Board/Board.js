@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import Card from "./Card";
-import appContext from "../../state";
+import { StateContext } from "../../state";
 
 const Board = props => {
-  const { state } = useContext(appContext);
+  const { cardsIds } = useContext(StateContext);
   return (
     <section className="board container">
       <BoardTasks>
-        {state.cardsIds.map(id => {
+        {cardsIds.map(id => {
           return <Card key={id} id={id} />;
         })}
       </BoardTasks>

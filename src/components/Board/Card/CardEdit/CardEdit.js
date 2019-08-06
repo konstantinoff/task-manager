@@ -5,17 +5,16 @@ import CardControl from "../CardControl";
 import CardColorBar from "../CardColorBar";
 import CardEditText from "./CardEditText";
 import CardEditUpload from "./CardEditUpload";
-import appContext from "../../../../state";
+import { StateContext } from "../../../../state";
 
 const CardEdit = ({ className, id }) => {
-  const { state } = useContext(appContext);
-  const { color, repeat } = state.cards[id];
-
+  const { cards } = useContext(StateContext);
+  const { color, repeat } = cards[id];
   return (
     <article className={className}>
       <CardInner modifiers="edit">
         <CardControl modifiers="edit" id={id} />
-        <CardColorBar modifiers={["edit", color, repeat]} />
+        <CardColorBar modifiers={["edit", repeat, color]} />
         <CardEditText id={id} />
         <CardEditUpload />
       </CardInner>

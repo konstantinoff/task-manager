@@ -5,11 +5,11 @@ import CardControl from "../CardControl";
 import CardColorBar from "../CardColorBar";
 import CardText from "./CardText";
 import CardSettings from "./CardSettings";
-import appContext from "../../../../state";
+import { StateContext } from "../../../../state";
 
 const CardView = ({ className, id }) => {
-  const { state } = useContext(appContext);
-  const { color, text, repeat } = state.cards[id];
+  const { cards } = useContext(StateContext);
+  const { text, color, repeat } = cards[id];
   return (
     <article className={className}>
       <CardInner>

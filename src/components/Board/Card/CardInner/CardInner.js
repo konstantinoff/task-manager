@@ -3,7 +3,7 @@ import styled from "styled-components";
 import CardControl from "../CardControl/CardControl";
 import { applyStyleModifiers } from "styled-components-modifiers";
 
-const CardInner = ({ className, children }) => {
+const CardInner = ({ className, children, modifiers }) => {
   return <div className={className}>{children}</div>;
 };
 
@@ -36,6 +36,11 @@ export default styled(CardInner)`
     min-height: 450px;
     border: 1px solid #000000;
     padding-bottom: 15px;
+    &:hover {
+      outline:none;
+      transition:none;
+      box-shadow:none;
+    }
     `
   })}
 `;

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import CardDetailsText from "./CardDetailsText";
 import CardHashTag from "./CardHashTag";
-import appContext from "../../../../../../state";
+import { StateContext } from "../../../../../../state";
 
 const CardDates = styled.div`
   display: flex;
@@ -21,8 +21,8 @@ const CardHashList = styled.div`
 `;
 
 const CardDetails = ({ id }) => {
-  const { state } = useContext(appContext);
-  const { hashtags } = state.cards[id];
+  const { cards } = useContext(StateContext);
+  const { hashtags } = cards[id];
   return (
     <CardDates>
       <CardDetailsText text="23 September" />

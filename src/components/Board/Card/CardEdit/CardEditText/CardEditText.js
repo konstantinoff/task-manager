@@ -1,21 +1,11 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import appContext from "../../../../../state";
+import { StateContext } from "../../../../../state";
 
 const CardEditText = ({ className, id }) => {
-  const { state, setState } = useContext(appContext);
-  const { text } = state.cards[id];
-  return (
-    <textarea
-      onChange={e =>
-        setState({
-          ...state
-        })
-      }
-      className={className}
-      defaultValue={text}
-    />
-  );
+  const { cards } = useContext(StateContext);
+  const { text } = cards[id];
+  return <textarea className={className} defaultValue={text} />;
 };
 
 export default styled(CardEditText)`
