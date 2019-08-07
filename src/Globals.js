@@ -54,4 +54,33 @@ export default createGlobalStyle`
       margin-bottom: 14px;
   }
   
+  .ant-calendar-picker > div {
+  position: relative;
+  }
+  
+  .ant-input {
+    display: flex;
+    width: 100px;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    margin: 0 0 10px;
+    height: 15px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    background-color: transparent;
+  }
+  
+  .ant-calendar-picker-clear, 
+  .ant-calendar-picker-icon {
+    top: 5px;
+    right: 0;
+  }
+  
+  
 `;

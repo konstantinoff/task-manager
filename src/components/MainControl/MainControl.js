@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import MenuButton from "./MenuButton";
+import { StateContext } from "../../state";
 
 const MainControl = props => {
+  const { addNewCard } = useContext(StateContext);
   return (
     <Control className="container">
       <Header>TASKMANAGER</Header>
       <MenuButton>Tasks</MenuButton>
-      <MenuButton>Add New Task</MenuButton>
+      <MenuButton onClick={addNewCard}>Add New Task</MenuButton>
       <MenuButton>Statistic</MenuButton>
       <MenuButton>Search</MenuButton>
     </Control>
