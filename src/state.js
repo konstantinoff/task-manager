@@ -1,4 +1,5 @@
 import React, { Component, createContext } from "react";
+import moment from "moment";
 
 export const StateContext = createContext({});
 
@@ -11,9 +12,9 @@ export class StateProvider extends Component {
           id: 0,
           text: "Текст1",
           color: null,
-          date: "Choise Date",
-          time: "Choise Time",
-          isDateEdit: true,
+          date: null,
+          time: null,
+          isDateEdit: null,
           repeat: null,
           hashtags: ["тег1", "тег2", "тег3"]
         },
@@ -28,8 +29,8 @@ export class StateProvider extends Component {
           id: 2,
           text: "Текст3",
           color: "green",
-          date: "Choise Date",
-          time: "Choise Time",
+          date: null,
+          time: null,
           isDateEdit: false,
           repeat: "repeat",
           hashtags: ["тег7", "тег8", "тег9"]
@@ -38,8 +39,8 @@ export class StateProvider extends Component {
           id: 2,
           text: "Текст3",
           color: "green",
-          date: "Choise Date",
-          time: "Choise Time",
+          date: null,
+          time: null,
           isDateEdit: false,
           repeat: "repeat",
           hashtags: ["тег9", "тег10", "тег11"]
@@ -49,7 +50,9 @@ export class StateProvider extends Component {
       editingCard: "0",
       changeEdit: this.changeEdit,
       addNewCard: this.addNewCard,
-      isDateEditToggler: this.isDateEditToggler
+      isDateEditToggler: this.isDateEditToggler,
+      setDate: this.setDate,
+      setTime: this.setTime
     };
   }
 
@@ -89,9 +92,33 @@ export class StateProvider extends Component {
         ...state.cards,
         [id]: {
           ...state.cards[id],
-          date: "Choise Date",
-          time: "Choise Time",
+          date: null,
+          time: null,
           isDateEdit: !state.cards[id].isDateEdit
+        }
+      }
+    }));
+  };
+
+  setDate = (id, date) => {
+    this.setState(state => ({
+      cards: {
+        ...state.cards,
+        [id]: {
+          ...state.cards[id],
+          date: date ? date.unix() : null
+        }
+      }
+    }));
+  };
+
+  setTime = (id, time) => {
+    this.setState(state => ({
+      cards: {
+        ...state.cards,
+        [id]: {
+          ...state.cards[id],
+          time: time ? time.unix() : null
         }
       }
     }));

@@ -34,7 +34,7 @@ export default createGlobalStyle`
   }
   
   .container {
-      width: 960px;
+      width: 1000px;
       padding: 0 20px;
       margin: 0 auto;
   }
@@ -54,11 +54,13 @@ export default createGlobalStyle`
       margin-bottom: 14px;
   }
   
-  .ant-calendar-picker > div {
+  .ant-calendar-picker > div,
+  .ant-time-picker > div {
   position: relative;
   }
   
-  .ant-input {
+  .ant-calendar-picker-input,
+  .ant-time-picker-input {
     display: flex;
     width: 100px;
     border: 0;
@@ -77,9 +79,17 @@ export default createGlobalStyle`
   }
   
   .ant-calendar-picker-clear, 
-  .ant-calendar-picker-icon {
+  .ant-calendar-picker-icon,
+  .ant-time-picker-clear, 
+  .ant-time-picker-icon {
     top: 5px;
     right: 0;
+    cursor: pointer;
+  }
+  
+  .ant-time-picker-icon,
+  .ant-time-picker-clear {
+    right: 28px;
   }
   
   

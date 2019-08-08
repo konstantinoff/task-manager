@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import MenuButton from "./MenuButton";
 import { StateContext } from "../../state";
 
-const MainControl = props => {
+const MainControl = () => {
   const { addNewCard } = useContext(StateContext);
   return (
     <Control className="container">
@@ -15,6 +14,23 @@ const MainControl = props => {
     </Control>
   );
 };
+
+const MenuButton = styled.button`
+  font-size: 16px;
+  display: inline-flex;
+  font-weight: normal;
+  color: inherit;
+  border: none;
+  text-transform: uppercase;
+  background-color: inherit;
+  text-decoration: none;
+  margin-left: 54px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+    transition: opacity 0.3s ease-out;
+  }
+`;
 
 const Header = styled.h1`
   font-size: 16px;
