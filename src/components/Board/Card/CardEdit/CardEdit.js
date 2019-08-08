@@ -12,7 +12,6 @@ import CardEditDates from "./CardEditDates";
 const CardEdit = ({ className, id }) => {
   const { cards } = useContext(StateContext);
   const { color, repeat } = cards[id];
-  console.log(repeat);
 
   return (
     <article className={className}>

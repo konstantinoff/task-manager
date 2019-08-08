@@ -3,9 +3,17 @@ import styled from "styled-components";
 import { StateContext } from "../../../../../state";
 
 const CardEditText = ({ className, id }) => {
-  const { cards } = useContext(StateContext);
+  const { cards, setText } = useContext(StateContext);
   const { text } = cards[id];
-  return <textarea className={className} defaultValue={text} />;
+  return (
+    <textarea
+      onChange={e => {
+        setText(id, e.target.value);
+      }}
+      className={className}
+      defaultValue={text}
+    />
+  );
 };
 
 export default styled(CardEditText)`

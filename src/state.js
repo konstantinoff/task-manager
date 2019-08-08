@@ -1,5 +1,4 @@
 import React, { Component, createContext } from "react";
-import moment from "moment";
 
 export const StateContext = createContext({});
 
@@ -52,7 +51,8 @@ export class StateProvider extends Component {
       addNewCard: this.addNewCard,
       isDateEditToggler: this.isDateEditToggler,
       setDate: this.setDate,
-      setTime: this.setTime
+      setTime: this.setTime,
+      setText: this.setText
     };
   }
 
@@ -119,6 +119,18 @@ export class StateProvider extends Component {
         [id]: {
           ...state.cards[id],
           time: time ? time.unix() : null
+        }
+      }
+    }));
+  };
+
+  setText = (id, value) => {
+    this.setState(state => ({
+      cards: {
+        ...state.cards,
+        [id]: {
+          ...state.cards[id],
+          text: value
         }
       }
     }));

@@ -2,34 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
 
-  @font-face {
-      font-family: "HelveticaNeueCyr";
-      src: local("HelveticaNeueCyr-Bold"),
-      url("./fonts/HelveticaNeueCyr-Bold.woff2") format("woff2"),
-      url("./fonts/HelveticaNeueCyr-Bold.woff") format("woff");
-      font-weight: bold;
-      font-style: normal;
-  }
-  
-  @font-face {
-      font-family: "HelveticaNeueCyr";
-      src: local("HelveticaNeueCyr-Medium"),
-      url("./fonts/HelveticaNeueCyr-Medium.woff2") format("woff2"),
-      url("./fonts/HelveticaNeueCyr-Medium.woff") format("woff");
-      font-weight: 500;
-      font-style: normal;
-  }
-  
-  @font-face {
-      font-family: "HelveticaNeueCyr";
-      src: local("HelveticaNeueCyr-Roman"),
-      url("./fonts/HelveticaNeueCyr-Roman.woff2") format("woff2"),
-      url("./fonts/HelveticaNeueCyr-Roman.woff") format("woff");
-      font-weight: normal;
-      font-style: normal;
-  }
-  
-  body {
+    body {
+      color: #000;
       font-family: "HelveticaNeueCyr", Arial, sans-serif;
   }
   
@@ -53,44 +27,4 @@ export default createGlobalStyle`
   .main__search {
       margin-bottom: 14px;
   }
-  
-  .ant-calendar-picker > div,
-  .ant-time-picker > div {
-  position: relative;
-  }
-  
-  .ant-calendar-picker-input,
-  .ant-time-picker-input {
-    display: flex;
-    width: 100px;
-    border: 0;
-    border-radius: 0;
-    padding: 0;
-    margin: 0 0 10px;
-    height: 15px;
-    font-size: 11px;
-    text-transform: uppercase;
-    font-weight: 500;
-    text-align: left;
-    cursor: pointer;
-    border-bottom: 1px solid #000000;
-    outline: none;
-    background-color: transparent;
-  }
-  
-  .ant-calendar-picker-clear, 
-  .ant-calendar-picker-icon,
-  .ant-time-picker-clear, 
-  .ant-time-picker-icon {
-    top: 5px;
-    right: 0;
-    cursor: pointer;
-  }
-  
-  .ant-time-picker-icon,
-  .ant-time-picker-clear {
-    right: 28px;
-  }
-  
-  
 `;

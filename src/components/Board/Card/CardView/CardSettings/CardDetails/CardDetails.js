@@ -1,7 +1,27 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import CardHashTag from "./CardHashTag";
+import moment from "moment";
 import { StateContext } from "../../../../../../state";
+
+const CardDetails = ({ id }) => {
+  const { cards } = useContext(StateContext);
+  const { hashtags, time, date } = cards[id];
+  const formattedDate = date ? moment.unix(date).format("D MMMM") : null;
+  const formattedTime = time ? moment.unix(time).format("LT") : null;
+  return (
+    <CardDates>
+      <CardDetailsText>{formattedDate}</CardDetailsText>
+      <CardDetailsText>
+        <b>{formattedTime}</b>
+      </CardDetailsText>
+      <CardHashList>
+        {hashtags.map((text, index) => {
+          return <CardHashTag key={index.toString()}>{text}</CardHashTag>;
+        })}
+      </CardHashList>
+    </CardDates>
+  );
+};
 
 const CardDates = styled.div`
   display: flex;
@@ -29,25 +49,17 @@ const CardDetailsText = styled.span`
   text-transform: uppercase;
 `;
 
-const CardDetails = ({ id }) => {
-  const { cards } = useContext(StateContext);
-  const { hashtags, time, date } = cards[id];
-  return (
-    <CardDates>
-      <CardDetailsText>{date}</CardDetailsText>
-      <CardDetailsText>
-        <b>{time}</b>
-      </CardDetailsText>
-      <CardHashList>
-        {hashtags.map((item, index) => {
-          return <CardHashTag key={index.toString()} text={item} />;
-        })}
-      </CardHashList>
-    </CardDates>
-  );
-};
-
-export default styled(CardDetails)`
-  display: flex;
-  flex-direction: column;
+const CardHashTag = styled.span`
+  margin-right: 3px;
+  font-size: 10px;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  background-color: transparent;
+  cursor: pointer;
+  &:before {
+    content: "#";
+  }
 `;
+
+export default CardDetails;

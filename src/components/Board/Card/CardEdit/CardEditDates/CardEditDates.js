@@ -27,7 +27,7 @@ const CardEditDates = ({ id }) => {
       </CardEditDateButtonPick>
       {isDateEdit && (
         <>
-          <DatePicker
+          <StyledDatePicker
             onChange={date => {
               setDate(id, date);
             }}
@@ -35,19 +35,96 @@ const CardEditDates = ({ id }) => {
             format={dateFormatList}
           />
 
-          <TimePicker
+          <StyledTimePicker
             onChange={time => {
               setTime(id, time);
             }}
+            use12Hours
+            format="h:mm a"
             defaultValue={timeNow}
-            format="HH:mm"
           />
         </>
       )}
-      <CardEditDateButtonPick>repeat: no</CardEditDateButtonPick>
     </CardEditDatesWrapper>
   );
 };
+
+const StyledTimePicker = styled(TimePicker)`
+  .ant-time-picker-input {
+    display: flex;
+    width: 100px;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    margin: 0 0 10px;
+    height: 15px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    color: #000000;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    background-color: transparent;
+    &::placeholder {
+      color: inherit;
+    }
+  }
+  .ant-time-picker > div {
+    position: relative;
+  }
+
+  .ant-time-picker-clear,
+  .ant-time-picker-icon {
+    top: 5px;
+    right: 27px;
+    cursor: pointer;
+  }
+`;
+
+const StyledDatePicker = styled(DatePicker)`
+  .ant-calendar-picker-input {
+    display: flex;
+    width: 100px;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    margin: 0 0 10px;
+    height: 15px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    color: #000000;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    background-color: transparent;
+    &::placeholder {
+      color: inherit;
+    }
+    &:hover {
+      border-bottom-color: #000;
+    }
+  }
+  .ant-calendar-picker > div {
+    position: relative;
+  }
+  .ant-calendar-picker-clear,
+  .ant-calendar-picker-icon {
+    top: 5px;
+    right: 0;
+    cursor: pointer;
+  }
+  &:hover {
+    border-color: #000;
+  }
+  .ant-calendar-picker:hover,
+  .ant-calendar-picker-input:not(.ant-input-disabled) {
+    border-color: #000;
+  }
+`;
 
 const CardEditDateButtonPick = styled.button`
   display: flex;
