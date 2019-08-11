@@ -15,7 +15,7 @@ const CardDetails = ({ id }) => {
         <b>{formattedTime}</b>
       </CardDetailsText>
       <CardHashList>
-        {hashtags.map((text, index) => {
+        {Array.from(hashtags).map(([color, text], index) => {
           return <CardHashTag key={index.toString()}>{text}</CardHashTag>;
         })}
       </CardHashList>

@@ -9,13 +9,14 @@ import CardSettings from "./CardSettings";
 
 const CardView = ({ className, id }) => {
   const { cards } = useContext(StateContext);
-  const { text, color, repeat } = cards[id];
+  const { text, color, repeated } = cards[id];
+  const isRepeated = repeated.size ? "repeat" : null;
 
   return (
     <article className={className}>
       <CardInner>
         <CardControl id={id} />
-        <CardColorBar modifiers={[color, repeat]} />
+        <CardColorBar modifiers={[color, isRepeated]} />
         <CardText>{text}</CardText>
         <CardSettings id={id} />
       </CardInner>

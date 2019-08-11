@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Card from "./Card";
 import { StateContext } from "../../state";
 
-const Board = props => {
+const Board = () => {
   const { cardsIds } = useContext(StateContext);
   return (
     <section className="board container">

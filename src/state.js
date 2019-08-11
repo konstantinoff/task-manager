@@ -13,16 +13,27 @@ export class StateProvider extends Component {
           color: null,
           date: null,
           time: null,
-          isDateEdit: null,
-          repeat: null,
-          hashtags: ["тег1", "тег2", "тег3"]
+          isDateEdit: false,
+          isDaysEdit: true,
+          hashtags: new Set([
+            ["magenta", "repeat"],
+            ["red", "cinema"],
+            ["geekblue", "entertainment"]
+          ]),
+          repeated: new Set(["mo", "su"])
         },
         1: {
           id: 1,
           text: "Текст2",
           color: "pink",
-          repeat: null,
-          hashtags: ["тег4", "тег5", "тег6"]
+          isDateEdit: false,
+          isDaysEdit: false,
+          hashtags: new Set([
+            ["magenta", "repeat"],
+            ["red", "cinema"],
+            ["geekblue", "entertainment"]
+          ]),
+          repeated: new Set([])
         },
         2: {
           id: 2,
@@ -31,8 +42,13 @@ export class StateProvider extends Component {
           date: null,
           time: null,
           isDateEdit: false,
-          repeat: "repeat",
-          hashtags: ["тег7", "тег8", "тег9"]
+          isDaysEdit: false,
+          hashtags: new Set([
+            ["magenta", "repeat"],
+            ["red", "cinema"],
+            ["geekblue", "entertainment"]
+          ]),
+          repeated: new Set([])
         },
         3: {
           id: 2,
@@ -41,8 +57,13 @@ export class StateProvider extends Component {
           date: null,
           time: null,
           isDateEdit: false,
-          repeat: "repeat",
-          hashtags: ["тег9", "тег10", "тег11"]
+          isDaysEdit: false,
+          hashtags: new Set([
+            ["magenta", "repeat"],
+            ["red", "cinema"],
+            ["geekblue", "entertainment"]
+          ]),
+          repeated: new Set([])
         }
       },
       cardsIds: ["0", "1", "2", "3"],
@@ -52,7 +73,11 @@ export class StateProvider extends Component {
       isDateEditToggler: this.isDateEditToggler,
       setDate: this.setDate,
       setTime: this.setTime,
-      setText: this.setText
+      setText: this.setText,
+      isDayEditToggler: this.isDayEditToggler,
+      editDayToggler: this.editDayToggler,
+      inputHasTagHandler: this.inputHasTagHandler,
+      onDeleteTagHandler: this.onDeleteTagHandler
     };
   }
 
@@ -100,6 +125,39 @@ export class StateProvider extends Component {
     }));
   };
 
+  isDayEditToggler = id => {
+    this.setState(state => {
+      const newRepeated = new Set(state.cards[id].repeated);
+      newRepeated.clear();
+      return {
+        cards: {
+          ...state.cards,
+          [id]: {
+            ...state.cards[id],
+            repeated: newRepeated,
+            isDaysEdit: !state.cards[id].isDaysEdit
+          }
+        }
+      };
+    });
+  };
+
+  editDayToggler = (id, day) => {
+    this.setState(state => {
+      const newRepeated = new Set(state.cards[id].repeated);
+      newRepeated.has(day) ? newRepeated.delete(day) : newRepeated.add(day);
+      return {
+        cards: {
+          ...state.cards,
+          [id]: {
+            ...state.cards[id],
+            repeated: newRepeated
+          }
+        }
+      };
+    });
+  };
+
   setDate = (id, date) => {
     this.setState(state => ({
       cards: {
@@ -134,6 +192,51 @@ export class StateProvider extends Component {
         }
       }
     }));
+  };
+
+  inputHasTagHandler = (id, value) => {
+    const colors = [
+      "magenta",
+      "red",
+      "orange",
+      "gold",
+      "lime",
+      "green",
+      "cyan",
+      "blue",
+      "geekblue",
+      "purple"
+    ];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    this.setState(state => {
+      const newHashtags = new Set(state.cards[id].hashtags);
+      newHashtags.add([randomColor, value]);
+      return {
+        cards: {
+          ...state.cards,
+          [id]: {
+            ...state.cards[id],
+            hashtags: newHashtags
+          }
+        }
+      };
+    });
+  };
+
+  onDeleteTagHandler = (id, tag) => {
+    this.setState(state => {
+      const newHashtags = new Set(state.cards[id].hashtags);
+      newHashtags.delete(tag);
+      return {
+        cards: {
+          ...state.cards,
+          [id]: {
+            ...state.cards[id],
+            hashtags: newHashtags
+          }
+        }
+      };
+    });
   };
 
   render() {

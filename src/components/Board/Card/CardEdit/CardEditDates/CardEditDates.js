@@ -17,14 +17,14 @@ const CardEditDates = ({ id }) => {
   const dateFormatList = ["D MMMM", "DD/MM/YY"];
 
   return (
-    <CardEditDatesWrapper>
-      <CardEditDateButtonPick
+    <CardEditWrapper>
+      <CardEditButton
         onClick={() => {
           isDateEditToggler(id);
         }}
       >
-        date:{isDateEdit ? "Yes" : "No"}
-      </CardEditDateButtonPick>
+        date: {isDateEdit ? "Yes" : "No"}
+      </CardEditButton>
       {isDateEdit && (
         <>
           <StyledDatePicker
@@ -45,7 +45,7 @@ const CardEditDates = ({ id }) => {
           />
         </>
       )}
-    </CardEditDatesWrapper>
+    </CardEditWrapper>
   );
 };
 
@@ -126,12 +126,12 @@ const StyledDatePicker = styled(DatePicker)`
   }
 `;
 
-const CardEditDateButtonPick = styled.button`
+const CardEditButton = styled.button`
   display: flex;
   width: auto;
   border: 0;
   padding: 0;
-  margin: 0 0 10px;
+  margin: 0 0 5px;
   font-size: 11px;
   text-transform: uppercase;
   font-weight: 500;
@@ -142,11 +142,11 @@ const CardEditDateButtonPick = styled.button`
   background-color: transparent;
 `;
 
-const CardEditDatesWrapper = styled.div`
+const CardEditWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
-  border-bottom: 2px solid #000000;
-  margin-bottom: 10px;
 `;
 
 export default CardEditDates;
+
+export { CardEditWrapper, CardEditButton };
