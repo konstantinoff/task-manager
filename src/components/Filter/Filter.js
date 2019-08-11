@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import FilterButton from "./FilterButton";
+import { StateContext } from "../../state";
 
-const Filter = props => (
-  <MainFilter className="container">
-    <FilterButton modifiers="active" name="All" count="15" />
-    <FilterButton name="Overdue" count="15" />
-    <FilterButton name="Today" count="15" />
-    <FilterButton name="Favorites" count="15" />
-    <FilterButton name="Repeating" count="15" />
-    <FilterButton name="Tags" count="15" />
-    <FilterButton name="Archive" count="15" />
-  </MainFilter>
-);
+const Filter = () => {
+  const { cardsIds, cards } = useContext(StateContext);
+  const numberOfFavorites = cardsIds.reduce((acc, item) => {
+    if (cards[item].repeated.size) {
+      return acc + 1;
+    }
+    return acc;
+  }, 0);
+  return (
+    <MainFilter className="container">
+      <FilterButton modifiers="active">All {cardsIds.length}</FilterButton>
+      <FilterButton>Overdue</FilterButton>
+      <FilterButton>Today</FilterButton>
+      <FilterButton>Favorites</FilterButton>
+      <FilterButton>Repeating {numberOfFavorites}</FilterButton>
+      <FilterButton>Tags</FilterButton>
+      <FilterButton>Archive</FilterButton>
+    </MainFilter>
+  );
+};
 
 const MainFilter = styled.section`
   margin-bottom: 29px;

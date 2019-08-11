@@ -1,46 +1,36 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import MenuButton from "./MenuButton";
-import appContext from "../../state";
+import { StateContext } from "../../state";
 
-const MainControl = props => {
-  const { state, setState } = useContext(appContext);
-  const newCardIndex = state.cardsIds.length;
-
-  const defaultCard = {
-    id: newCardIndex,
-    text: "Введите текст",
-    color: null,
-    deadLine: "",
-    time: "",
-    repeat: "",
-    isFavorite: false,
-    hashtags: []
-  };
-  const UpdatedCards = { ...state.cards, [newCardIndex]: defaultCard };
-  const UpdatedCardIds = [...state.cardsIds, newCardIndex.toString()];
+const MainControl = () => {
+  const { addNewCard } = useContext(StateContext);
   return (
     <Control className="container">
       <Header>TASKMANAGER</Header>
-      <section className="control__btn-wrap">
-        <MenuButton>Tasks</MenuButton>
-        <MenuButton
-          onClick={() =>
-            setState({
-              ...state,
-              cardsIds: UpdatedCardIds,
-              cards: UpdatedCards
-            })
-          }
-        >
-          Add New Task
-        </MenuButton>
-        <MenuButton>Statistic</MenuButton>
-        <MenuButton>Search</MenuButton>
-      </section>
+      <MenuButton>Tasks</MenuButton>
+      <MenuButton onClick={addNewCard}>Add New Task</MenuButton>
+      <MenuButton>Statistic</MenuButton>
+      <MenuButton>Search</MenuButton>
     </Control>
   );
 };
+
+const MenuButton = styled.button`
+  font-size: 16px;
+  display: inline-flex;
+  font-weight: normal;
+  color: inherit;
+  border: none;
+  text-transform: uppercase;
+  background-color: inherit;
+  text-decoration: none;
+  margin-left: 54px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+    transition: opacity 0.3s ease-out;
+  }
+`;
 
 const Header = styled.h1`
   font-size: 16px;

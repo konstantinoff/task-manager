@@ -2,11 +2,10 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import CardView from "./CardView";
 import CardEdit from "./CardEdit";
-import appContext from "../../../state";
+import { StateContext } from "../../../state";
 
 const Card = ({ className, id }) => {
-  const { state } = useContext(appContext);
-  const { editingCard } = state;
+  const { editingCard } = useContext(StateContext);
   return (
     <div className={className}>
       {editingCard === id ? <CardEdit id={id} /> : <CardView id={id} />}

@@ -37,6 +37,9 @@ const Img = styled.img`
 const DropzoneContainer = styled.section`
   cursor: pointer;
   text-align: center;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 10px;
+  margin-bottom: 9px;
 `;
 
 function Previews(props) {
