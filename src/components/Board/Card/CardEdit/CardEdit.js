@@ -10,8 +10,12 @@ import CardEditUpload from "./CardEditUpload";
 import CardEditDates from "./CardEditDates";
 import CardEditHashTags from "./CardEditHastags";
 import CardEditRepeat from "./CardEditRepeat";
+import CardEditColors from "./CardEditColors";
+import CardEditDelete from "./CardEditDelete";
 
 //todo: написать функцию, которая закрывает карточку по клику вне ее
+//todo: Удаления карточки filter(item !==id)
+//todo: Реализовать механизм создания новой карточки по ключу lodash unic
 
 const CardEdit = ({ className, id }) => {
   const { cards } = useContext(StateContext);
@@ -27,7 +31,8 @@ const CardEdit = ({ className, id }) => {
         <CardEditDates id={id} />
         <CardEditRepeat id={id} />
         <CardEditHashTags id={id} />
-        {/*//todo: Сделать реализацию выбора цвета*/}
+        <CardEditColors id={id} />
+        <CardEditDelete>Delete</CardEditDelete>
       </CardInner>
     </article>
   );

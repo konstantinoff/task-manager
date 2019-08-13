@@ -10,7 +10,7 @@ export class StateProvider extends Component {
         0: {
           id: 0,
           text: "Текст1",
-          color: null,
+          color: "black",
           date: null,
           time: null,
           isDateEdit: false,
@@ -77,7 +77,8 @@ export class StateProvider extends Component {
       isDayEditToggler: this.isDayEditToggler,
       editDayToggler: this.editDayToggler,
       inputHasTagHandler: this.inputHasTagHandler,
-      onDeleteTagHandler: this.onDeleteTagHandler
+      onDeleteTagHandler: this.onDeleteTagHandler,
+      setColor: this.setColor
     };
   }
 
@@ -233,6 +234,21 @@ export class StateProvider extends Component {
           [id]: {
             ...state.cards[id],
             hashtags: newHashtags
+          }
+        }
+      };
+    });
+  };
+
+  setColor = (id, color) => {
+    console.log(color);
+    this.setState(state => {
+      return {
+        cards: {
+          ...state.cards,
+          [id]: {
+            ...state.cards[id],
+            color: color
           }
         }
       };
