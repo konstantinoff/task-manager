@@ -1,5 +1,6 @@
 {
   "name": "task-manager",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,9 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,8 +37,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^2.1.0",
     "prettier": "1.18.2"
-  },
-  "homepage": "konstantinov.dev"
+  }
 }
