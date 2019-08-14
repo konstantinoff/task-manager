@@ -14,8 +14,6 @@ const Main = styled.main`
   padding-bottom: 20px;
 `;
 function App() {
-  useEffect(() => {});
-
   return (
     <Main>
       <MainControl />

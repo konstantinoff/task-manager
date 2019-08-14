@@ -4,7 +4,7 @@ import styled from "styled-components";
 const CardDelete = styled.button`
   display: flex;
   padding: 5px 0;
-  margin: 5px 0 0;
+  margin-top: auto;
   background-color: transparent;
   justify-content: center;
   color: red;

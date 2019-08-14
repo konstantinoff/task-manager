@@ -1,4 +1,5 @@
 import React, { Component, createContext } from "react";
+import { uniqueId } from "lodash";
 
 export const StateContext = createContext({});
 
@@ -78,7 +79,8 @@ export class StateProvider extends Component {
       editDayToggler: this.editDayToggler,
       inputHasTagHandler: this.inputHasTagHandler,
       onDeleteTagHandler: this.onDeleteTagHandler,
-      setColor: this.setColor
+      setColor: this.setColor,
+      onDeleteCard: this.onDeleteCard
     };
   }
 
@@ -87,26 +89,42 @@ export class StateProvider extends Component {
   };
 
   addNewCard = () => {
+    const newId = uniqueId("card_");
+    console.log(newId);
+    const { cardsIds } = this.state;
+    const newCardIds = [...cardsIds, newId];
+
     const defaultCardState = {
-      id: 0,
+      id: newId,
       text: "Введите текст",
-      color: null,
+      color: "black",
       date: null,
       time: null,
-      repeat: null,
-      hashtags: []
+      isDateEdit: false,
+      isDaysEdit: false,
+      repeated: new Set([]),
+      hashtags: new Set([])
     };
-
-    const { cardsIds } = this.state;
-
-    const nextCardIndex = cardsIds.length.toString();
-
-    let newCardIds = [...cardsIds, nextCardIndex];
+    // 0: {
+    //   id: 0,
+    //     text: "Текст1",
+    //     color: "black",
+    //     date: null,
+    //     time: null,
+    //     isDateEdit: false,
+    //     isDaysEdit: true,
+    //     hashtags: new Set([
+    //     ["magenta", "repeat"],
+    //     ["red", "cinema"],
+    //     ["geekblue", "entertainment"]
+    //   ]),
+    //     repeated: new Set(["mo", "su"])
+    // },
 
     this.setState(state => ({
       cards: {
         ...state.cards,
-        [nextCardIndex]: defaultCardState
+        [newId]: defaultCardState
       },
       cardsIds: newCardIds
     }));
@@ -241,7 +259,6 @@ export class StateProvider extends Component {
   };
 
   setColor = (id, color) => {
-    console.log(color);
     this.setState(state => {
       return {
         cards: {
@@ -251,6 +268,18 @@ export class StateProvider extends Component {
             color: color
           }
         }
+      };
+    });
+  };
+
+  onDeleteCard = id => {
+    this.setState(state => {
+      const { cards, cardsIds } = state;
+      const updatedCards = cardsIds.filter(item => item !== id);
+      delete cards[id];
+      return {
+        cards: cards,
+        cardsIds: updatedCards
       };
     });
   };
