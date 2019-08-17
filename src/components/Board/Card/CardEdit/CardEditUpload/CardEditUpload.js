@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDropzone } from "react-dropzone";
 import addPhoto from "./add-photo.svg";
+import { StateContext } from "../../../../../state";
 
 const ThumbsContainer = styled.div`
   display: flex;
@@ -42,11 +43,12 @@ const DropzoneContainer = styled.section`
   margin-bottom: 9px;
 `;
 
-function Previews(props) {
+function Previews({ id }) {
+  const { setImage } = useContext(StateContext);
   const [files, setFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
-    // multiple: false,
+    multiple: false,
     onDrop: acceptedFiles => {
       setFiles(
         acceptedFiles.map(file =>
@@ -68,8 +70,8 @@ function Previews(props) {
 
   useEffect(
     () => () => {
-      // Make sure to revoke the data uris to avoid memory leaks
-      files.forEach(file => URL.revokeObjectURL(file.preview));
+      // files.forEach(file => URL.revokeObjectURL(file.preview));
+      files[0] && setImage(id, files[0].preview);
     },
     [files]
   );

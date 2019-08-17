@@ -9,65 +9,50 @@ export class StateProvider extends Component {
     this.state = {
       cards: {
         0: {
-          id: 0,
-          text: "Текст1",
-          color: "black",
-          date: null,
-          time: null,
-          isDateEdit: false,
+          id: 2,
+          text: "Code, Sleep, Repeat",
+          color: "yellow",
+          date: 1,
+          time: 32410,
+          isDateEdit: true,
           isDaysEdit: true,
+          image: null,
           hashtags: new Set([
-            ["magenta", "repeat"],
-            ["red", "cinema"],
-            ["geekblue", "entertainment"]
+            ["gold", "Code"],
+            ["green", "Sleep"],
+            ["pink", "Repeat"]
           ]),
-          repeated: new Set(["mo", "su"])
+          repeated: new Set(["mo", "tu", "we", "th", "fr", "sa", "su"])
         },
         1: {
           id: 1,
-          text: "Текст2",
+          text: "Finish learning TypeScript",
           color: "pink",
+          date: null,
+          time: null,
           isDateEdit: false,
           isDaysEdit: false,
+          image: null,
           hashtags: new Set([
-            ["magenta", "repeat"],
-            ["red", "cinema"],
-            ["geekblue", "entertainment"]
+            ["magenta", "selfEducation"],
+            ["red", "important"]
           ]),
           repeated: new Set([])
         },
         2: {
-          id: 2,
-          text: "Текст3",
+          id: 0,
+          text: "Buy Milk",
           color: "green",
           date: null,
           time: null,
           isDateEdit: false,
-          isDaysEdit: false,
-          hashtags: new Set([
-            ["magenta", "repeat"],
-            ["red", "cinema"],
-            ["geekblue", "entertainment"]
-          ]),
-          repeated: new Set([])
-        },
-        3: {
-          id: 2,
-          text: "Текст3",
-          color: "green",
-          date: null,
-          time: null,
-          isDateEdit: false,
-          isDaysEdit: false,
-          hashtags: new Set([
-            ["magenta", "repeat"],
-            ["red", "cinema"],
-            ["geekblue", "entertainment"]
-          ]),
-          repeated: new Set([])
+          isDaysEdit: true,
+          image: null,
+          hashtags: new Set([["magenta", "Emc2"]]),
+          repeated: new Set(["su"])
         }
       },
-      cardsIds: ["0", "1", "2", "3"],
+      cardsIds: ["0", "1", "2"],
       editingCard: "0",
       changeEdit: this.changeEdit,
       addNewCard: this.addNewCard,
@@ -80,7 +65,8 @@ export class StateProvider extends Component {
       inputHasTagHandler: this.inputHasTagHandler,
       onDeleteTagHandler: this.onDeleteTagHandler,
       setColor: this.setColor,
-      onDeleteCard: this.onDeleteCard
+      onDeleteCard: this.onDeleteCard,
+      setImage: this.setImage
     };
   }
 
@@ -96,30 +82,16 @@ export class StateProvider extends Component {
 
     const defaultCardState = {
       id: newId,
-      text: "Введите текст",
+      text: "Type some text...",
       color: "black",
       date: null,
       time: null,
+      image: null,
       isDateEdit: false,
       isDaysEdit: false,
       repeated: new Set([]),
       hashtags: new Set([])
     };
-    // 0: {
-    //   id: 0,
-    //     text: "Текст1",
-    //     color: "black",
-    //     date: null,
-    //     time: null,
-    //     isDateEdit: false,
-    //     isDaysEdit: true,
-    //     hashtags: new Set([
-    //     ["magenta", "repeat"],
-    //     ["red", "cinema"],
-    //     ["geekblue", "entertainment"]
-    //   ]),
-    //     repeated: new Set(["mo", "su"])
-    // },
 
     this.setState(state => ({
       cards: {
@@ -280,6 +252,20 @@ export class StateProvider extends Component {
       return {
         cards: cards,
         cardsIds: updatedCards
+      };
+    });
+  };
+
+  setImage = (id, image) => {
+    this.setState(state => {
+      return {
+        cards: {
+          ...state.cards,
+          [id]: {
+            ...state.cards[id],
+            image: image
+          }
+        }
       };
     });
   };

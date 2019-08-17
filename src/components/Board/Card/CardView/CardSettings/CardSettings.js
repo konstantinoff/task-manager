@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import CardImage from "./CardImage";
 import CardDetails from "./CardDetails";
+import { StateContext } from "../../../../../state";
 
 const CardSettings = ({ className, id }) => {
+  const { cards } = useContext(StateContext);
+  const { image } = cards[id];
   return (
     <div className={className}>
       <CardDetails id={id} />
-      <CardImage />
+      {image && <CardImage image={image} />}
     </div>
   );
 };

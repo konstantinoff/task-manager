@@ -1,12 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { StateContext } from "../../../../../state";
 
 const CardEditText = ({ className, id }) => {
+  const textareaEl = useRef(null);
   const { cards, setText } = useContext(StateContext);
   const { text } = cards[id];
+
+  const moveCaretAtEnd = e => {
+    let temp_value = e.target.value;
+    e.target.value = "";
+    e.target.value = temp_value;
+  };
+
+  useEffect(() => {
+    textareaEl.current.focus();
+  }, []);
   return (
     <textarea
+      ref={textareaEl}
+      onFocus={moveCaretAtEnd}
       onChange={e => {
         setText(id, e.target.value);
       }}
@@ -27,8 +40,5 @@ export default styled(CardEditText)`
   font-size: 16px;
   overflow: auto;
   box-sizing: border-box;
-  border-color: transparent;
-  &:focus {
-    border-color: rgba(0, 0, 0, 0.2);
-  }
+  border-color: rgba(0, 0, 0, 0.2);
 `;

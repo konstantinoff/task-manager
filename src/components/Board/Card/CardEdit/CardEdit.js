@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { StateContext } from "../../../../state";
 
@@ -25,7 +25,7 @@ const CardEdit = ({ className, id }) => {
         <CardControl modifiers="edit" id={id} />
         <CardColorBar modifiers={["edit", color, isRepeated]} />
         <CardEditText id={id} />
-        <CardEditUpload />
+        <CardEditUpload id={id} />
         <CardEditDates id={id} />
         <CardEditRepeat id={id} />
         <CardEditHashTags id={id} />
